@@ -163,7 +163,16 @@ Strategic Research Agent является частью AI-платформы.
 
 Основной стек:
 
-- Python
+- Python (реализация агента: `agent/strategic_research_agent/`, установка из корня: `pip install -e .`)
+  - `config/` — настройки (`SRA_*`, ключи API)
+  - `governance/` — политики безопасности (например, эвристики prompt injection)
+  - `observability/` — логирование
+  - `research/` — пайплайн исследования и A2A task store
+  - `discovery/` — Agent Card для A2A
+  - `interfaces/` — A2A (FastAPI), MCP, CLI
+  - `workflow/` — LangGraph PAR (узлы в `workflow/nodes/`)
+  - `tools/` — Tavily, arXiv, агрегаторы; `definitions.py` / `executor.py` — схемы и вызовы для агента с tool-calling (сам выбирает `web_search`, `arxiv_search`, `web_search_on_sites`)
+  - `utils/` — HTTP, дедуп, retry
 - LangGraph
 - LLM models
 - Vector database
